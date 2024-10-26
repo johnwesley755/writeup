@@ -1,6 +1,6 @@
 # **WriteUp 📝✨**  
 
-![WriteUp Banner](https://via.placeholder.com/1200x400?text=WriteUp+Project+Banner)
+![WriteUp Banner](src/assets/home-update-banner.png)
 
 ## 🚀 **About the Project**  
 **WriteUp** is a dynamic blog platform where users can create, share, and view technical blogs 📚. It features **syntax-highlighted code snippets** 🎨 powered by **PrismJS**, with smooth animations from **Framer Motion** and a responsive design using **Tailwind CSS**. 🌌
@@ -112,13 +112,13 @@ Open [http://localhost:5173](http://localhost:5173) 🌐
 ## 🖼️ **Screenshots**
 
 1. **Home Page (Blog List)**  
-![Home Page](https://via.placeholder.com/800x400?text=Home+Page)
+![Home Page](src/assets/home-banner.png)
 
 2. **Create Blog Form**  
-![Create Blog](https://via.placeholder.com/800x400?text=Create+Blog)
+![Create Blog](src/assets/blog-form-banner.png)
 
 3. **Blog with Code Snippet**  
-![Blog with Code Snippet](https://via.placeholder.com/800x400?text=Blog+Page)
+![Blog with Code Snippet](src/assets/blog-banner.png)
 
 ---
 
