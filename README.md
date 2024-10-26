@@ -62,6 +62,22 @@ writeup/
 
 ---
 
+## 📦 **Dependencies**
+
+Here are the main dependencies used in the project:  
+```json
+"dependencies": {
+  "framer-motion": "^11.11.10",
+  "prismjs": "^1.29.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-icons": "^5.3.0",
+  "react-router-dom": "^6.27.0"
+}
+```
+
+---
+
 ## 🚀 **Getting Started**
 
 ### 1️⃣ Clone the Repository  
@@ -137,11 +153,5 @@ Thanks to all the amazing open-source libraries and tools used in this project! 
 ## 🎯 **Project Status**
 
 WriteUp is under active development! Stay tuned for updates and new features 🚀.
-
----
-
-## 📝 **Footer**
-
-Made with ❤️ by John Wesley and the open-source community ✨.  
 
 ---
