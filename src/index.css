@@ -1,5 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* index.css */
+/* index.css */
+@import 'prismjs/themes/prism-okaidia.css'; /* Dark theme */
 
-/* Add any additional custom styles here */
+pre {
+  background-color: #1e1e1e; /* Dark background */
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace; /* Coding font */
+}
+
+code {
+  color: #dcdcaa; /* Yellow keywords */
+  font-size: 0.9rem;
+}
+
+.token.comment {
+  color: #6a9955; /* Green comments */
+}
+
+.token.keyword {
+  color: #c586c0; /* Purple keywords */
+}
+
+.token.function {
+  color: #dcdcaa; /* Yellow functions */
+}
+
+.token.string {
+  color: #ce9178; /* Light red strings */
+}
+

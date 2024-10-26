@@ -1,18 +1,19 @@
 // src/components/CodeBlock.jsx
-import { useEffect } from 'react';
-import Prism from 'prismjs'; // Import Prism for syntax highlighting
+import { useEffect } from "react";
+import Prism from "prismjs";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-css";
+import "prismjs/components/prism-markup";
 
-const CodeBlock = ({ code, language = 'javascript' }) => {
+const CodeBlock = ({ code, language = "javascript" }) => {
   useEffect(() => {
-    Prism.highlightAll(); // Highlight code after component mounts
+    Prism.highlightAll(); // Highlight code after component renders
   }, []);
 
   return (
-    <div className="bg-gray-900 rounded-md p-4 mb-8 overflow-auto shadow-md">
-      <pre className="language-javascript">
-        <code className={`language-${language}`}>{code}</code>
-      </pre>
-    </div>
+    <pre className="rounded-lg bg-gray-900 p-4 overflow-auto shadow-lg">
+      <code className={`language-${language}`}>{code}</code>
+    </pre>
   );
 };
 

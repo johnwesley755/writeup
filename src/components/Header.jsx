@@ -1,42 +1,70 @@
 // src/components/Header.jsx
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   return (
-    <header className="bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 p-6 shadow-lg sticky top-0 z-10">
-      <div className="container mx-auto flex justify-between items-center">
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-white"
-        >
-          WriteUp ✨
-        </motion.h1>
-        <button
-          className="text-white md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          ☰
-        </button>
-        <nav
-          className={`${
-            isOpen ? "block" : "hidden"
-          } md:flex gap-8 text-white text-lg`}
-        >
-          <Link to="/" className="hover:underline">
-            Home
-          </Link>
-          <Link to="/new-blog" className="hover:underline">
-            Create Blog
-          </Link>
-        </nav>
+    <>
+      {/* Navbar */}
+      <header className="bg-gray-900 text-white fixed w-full z-20 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <h1 className="text-2xl font-bold">
+            <Link to="/">WriteUp</Link>
+          </h1>
+          <nav className="hidden md:flex space-x-6">
+            <Link to="/" className="hover:text-blue-400">
+              Home
+            </Link>
+            <Link to="/new" className="hover:text-blue-400">
+              Create Blog
+            </Link>
+          </nav>
+
+          {/* Hamburger Icon for Mobile */}
+          <button
+            onClick={toggleSidebar}
+            className="md:hidden text-2xl focus:outline-none"
+          >
+            {isSidebarOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+      </header>
+
+      {/* Sidebar for Mobile */}
+      <div
+        className={`fixed inset-0 bg-gray-800 bg-opacity-90 transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out md:hidden`}
+      >
+        <div className="p-6">
+          <h2 className="text-3xl font-bold mb-4">WriteUp</h2>
+          <nav className="space-y-4">
+            <Link
+              to="/"
+              onClick={toggleSidebar}
+              className="block text-white hover:text-blue-400 text-lg"
+            >
+              Home
+            </Link>
+            <Link
+              to="/new"
+              onClick={toggleSidebar}
+              className="block text-white hover:text-blue-400 text-lg"
+            >
+              Create Blog
+            </Link>
+          </nav>
+        </div>
       </div>
-    </header>
+
+      {/* Spacer to Push Content Down */}
+      <div className="h-16 md:h-20"></div>
+    </>
   );
 };
 

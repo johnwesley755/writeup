@@ -10,7 +10,7 @@ const Footer = () => {
         </p>
         <div className="flex gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/Krithik-sri"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300 transition"
@@ -18,7 +18,7 @@ const Footer = () => {
             <FaGithub size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/krithik-srinivas/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300 transition"
