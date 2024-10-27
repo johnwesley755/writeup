@@ -12,7 +12,7 @@ const Projects = () => {
       description:
         "The Face Tracker project leverages the power of deep learning, utilizing Single Shot Detector fine-tuned for a custom dataset.",
       imageUrl: projectImg,
-      link: "https://github.com/Krithik-sri/Face_Tracker", // Replace with actual project URL
+      link: "", // Replace with actual project URL
     },
     {
       title: "Project 2",
