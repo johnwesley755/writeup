@@ -27,6 +27,7 @@ const App = () => {
               <Route path="/blog/:id" element={<BlogPage blogs={blogs} />} />
               <Route path="/new" element={<NewBlogForm addBlog={addBlog} />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              
             </Routes>
           </main>
           <Footer />
