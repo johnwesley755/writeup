@@ -23,6 +23,9 @@ const Header = () => {
             <Link to="/new" className="hover:text-blue-400">
               Create Blog
             </Link>
+            <Link to="/portfolio" className="hover:text-blue-400">
+              Portfolio
+            </Link>
           </nav>
 
           {/* Hamburger Icon for Mobile */}
@@ -42,21 +45,28 @@ const Header = () => {
         } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div className="p-6">
-          <h2 className="text-3xl font-bold mb-4">WriteUp</h2>
+          <h2 className="text-5xl font-extrabold mb-4">WriteUp</h2>
           <nav className="space-y-4">
             <Link
               to="/"
               onClick={toggleSidebar}
-              className="block text-white hover:text-blue-400 text-lg"
+              className="block font-bold text-white hover:text-blue-400 text-lg"
             >
               Home
             </Link>
             <Link
               to="/new"
               onClick={toggleSidebar}
-              className="block text-white hover:text-blue-400 text-lg"
+              className="block font-bold text-white hover:text-blue-400 text-lg"
             >
               Create Blog
+            </Link>
+            <Link
+              to="/portfolio"
+              onClick={toggleSidebar}
+              className="block font-bold text-white hover:text-blue-400 text-lg"
+            >
+              Portfolio
             </Link>
           </nav>
         </div>
