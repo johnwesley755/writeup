@@ -24,7 +24,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 glow border cursor-pointer"
+              className="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 glow cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
