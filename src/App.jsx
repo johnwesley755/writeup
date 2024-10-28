@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import BlogPage from "./pages/BlogPage";
 import NewBlogForm from "./pages/NewBlogForm";
 import Portfolio from "./pages/Portfolio";
+import Projects from "./components/Projects";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -27,7 +28,7 @@ const App = () => {
               <Route path="/blog/:id" element={<BlogPage blogs={blogs} />} />
               <Route path="/new" element={<NewBlogForm addBlog={addBlog} />} />
               <Route path="/portfolio" element={<Portfolio />} />
-              
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </main>
           <Footer />

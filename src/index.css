@@ -171,7 +171,7 @@ code {
   animation: gradientAnimation 5s linear infinite;
 }
 .text-gradients {
-  background: linear-gradient(90deg, #4c6ef5, #e34b97, #ffd755, #86f461);
+  background: linear-gradient(90deg, #b22ccd, #e34b97, #ffd755, #86f461);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientAnimation 5s linear infinite;

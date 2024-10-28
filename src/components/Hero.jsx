@@ -1,12 +1,13 @@
 // src/components/Hero.jsx
 import React from "react";
-import profileImage from "../assets/krithi-sri.jpg"; // Ensure this image exists
 import { motion } from "framer-motion";
-import resumePdf from "../assets/Profile.pdf"
+import { Typewriter } from "react-simple-typewriter"; // Import the Typewriter component
+import profileImage from "../assets/krithi-sri.jpg";
+import resumePdf from "../assets/Profile.pdf"; // Ensure the PDF path is correct
+
 const Hero = () => {
   const handleDownloadResume = () => {
-    // Link to your resume file (ensure the file exists in the public folder)
-    const resumeUrl = resumePdf; // Update with the correct path
+    const resumeUrl = resumePdf;
     window.open(resumeUrl, "_blank");
   };
 
@@ -28,14 +29,23 @@ const Hero = () => {
       >
         Krithik Srinivas 👨‍💻
       </motion.h1>
-      <motion.p
+      <motion.div
         className="text-2xl font-extrabold mb-2 text-gradients tracking-wide"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Cybersecurity | AI | Pre-Final Year Student
-      </motion.p>
+        {/* Typewriter Effect */}
+        <Typewriter
+          words={["Cybersecurity", "Artificial Intelligence", "Pre-Final Year Student"]}
+          loop={false}
+          cursor
+          cursorStyle="|"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
+      </motion.div>
       <motion.p
         className="text-xl text-gray-400"
         initial={{ y: -20, opacity: 0 }}
@@ -49,7 +59,7 @@ const Hero = () => {
           className="bg-gradient-to-r from-blue-500 to-purple-600 font-bold text-transparent bg-clip-text px-6 py-3 rounded-full shadow-md transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-blue-400 glow border"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => (window.location.href = "/projects")} // Update the URL to your projects page
+          onClick={() => (window.location.href = "/projects")}
         >
           View Projects
         </motion.button>
