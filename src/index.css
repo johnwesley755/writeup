@@ -9,7 +9,7 @@
 body {
   font-family: 'Rubik', sans-serif;
   background-color: #0d1117; /* Darker background for contrast */
-}
+  }
 
 /* Preformatted Text (Code Block) */
 pre {
@@ -170,6 +170,12 @@ code {
   -webkit-text-fill-color: transparent;
   animation: gradientAnimation 5s linear infinite;
 }
+.text-gradients {
+  background: linear-gradient(90deg, #4c6ef5, #e34b97, #ffd755, #86f461);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 5s linear infinite;
+}
 
 /* Gradient Animation */
 @keyframes gradientAnimation {
@@ -182,4 +188,7 @@ code {
   100% {
     background-position: 0% 50%;
   }
+}
+.italic{
+  font-style:italic;
 }

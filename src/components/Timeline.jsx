@@ -29,7 +29,7 @@ const Timeline = () => {
   return (
     <section className="py-20 px-4 bg-gray-900">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-8 text-gradient">Experience</h2>
+        <h2 className="text-5xl font-extrabold mb-8 text-gradient">Experience</h2>
         <div className="space-y-6">
           {experiences.map((experience, index) => (
             <motion.div
@@ -39,10 +39,10 @@ const Timeline = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h3 className="text-xl font-semibold">{experience.title} 🚀</h3>
-              <p className="text-gray-400 italic">{experience.company}</p>
-              <p className="text-gray-300 mb-4">{experience.date}</p>
-              <p className="text-gray-200">{experience.description}</p>
+              <h3 className="text-xl font-extrabold tracking-wide">{experience.title} 🚀</h3>
+              <p className="text-gray-400 font-semibold italic">{experience.company}</p>
+              <p className="text-gray-300 mb-4 font-mono font-bold">{experience.date}</p>
+              <p className="text-gray-200 font-mono font-bold">{experience.description}</p>
             </motion.div>
           ))}
         </div>

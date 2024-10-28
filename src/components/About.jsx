@@ -24,13 +24,13 @@ const About = () => {
   return (
     <section className="py-20 px-4 bg-gray-800">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-8 text-gradient">About Me</h2>
-        <p className="mb-4 text-gray-300">
+        <h2 className="text-5xl font-extrabold mb-8 text-gradient">About Me</h2>
+        <p className="mb-4 text-gray-300 font-mono text-xl">
           Passionate about penetration testing while also leveraging AI and
           Cloud. Eager to contribute expertise in Cybersecurity, Cloud, and AI
           to tackle real-world challenges.
         </p>
-        <p className="text-lg text-gray-400">
+        <p className="text-lg text-gray-400 italic font-semibold">
           🚀 Always ready to learn and adapt! 📚
         </p>
 
@@ -43,10 +43,10 @@ const About = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
             >
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-xl font-extrabold tracking-wide mb-2">
                 {item.emoji} {item.title}
               </h3>
-              <p className="text-gray-300">{item.description}</p>
+              <p className="text-gray-300 font-mono font-bold">{item.description}</p>
             </motion.div>
           ))}
         </div>

@@ -15,13 +15,13 @@ const Hero = () => {
       <motion.img
         src={profileImage}
         alt="Krithik Srinivas"
-        className="w-60 h-60 rounded-full border-4 border-white mb-8 mt-28 shadow-lg glow"
+        className="w-60 h-60 rounded-full border-4 border-white mb-8 mt-4 shadow-lg glow"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       />
       <motion.h1
-        className="text-5xl font-bold mb-4 text-gradient"
+        className="text-6xl font-extrabold mb-4 text-gradient"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -29,7 +29,7 @@ const Hero = () => {
         Krithik Srinivas 👨‍💻
       </motion.h1>
       <motion.p
-        className="text-xl mb-2 text-gray-300"
+        className="text-2xl font-extrabold mb-2 text-gradients tracking-wide"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -37,7 +37,7 @@ const Hero = () => {
         Cybersecurity | AI | Pre-Final Year Student
       </motion.p>
       <motion.p
-        className="text-lg text-gray-400"
+        className="text-xl text-gray-400"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -46,7 +46,7 @@ const Hero = () => {
       </motion.p>
       <div className="mt-8 flex space-x-4">
         <motion.button
-          className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text px-6 py-3 rounded-full shadow-md transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-blue-400 glow border"
+          className="bg-gradient-to-r from-blue-500 to-purple-600 font-bold text-transparent bg-clip-text px-6 py-3 rounded-full shadow-md transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-blue-400 glow border"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => (window.location.href = "/projects")} // Update the URL to your projects page
@@ -54,7 +54,7 @@ const Hero = () => {
           View Projects
         </motion.button>
         <motion.button
-          className="bg-gradient-to-r from-green-500 to-teal-500 text-transparent bg-clip-text px-6 py-3 rounded-full shadow-md transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-green-400 glow border"
+          className="bg-gradient-to-r from-green-500 to-teal-500 text-transparent font-bold bg-clip-text px-6 py-3 rounded-full shadow-md transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-green-400 glow border"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleDownloadResume}
