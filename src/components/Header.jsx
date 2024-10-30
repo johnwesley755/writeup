@@ -13,7 +13,7 @@ const Header = () => {
       {/* Navbar */}
       <header className="bg-gray-900 text-white font-bold fixed w-full z-20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-4xl max-sm:text-3xl font-bold">
             <Link to="/">WriteUp</Link>
           </h1>
           <nav className="hidden md:flex space-x-6">

@@ -22,7 +22,7 @@ const Hero = () => {
         transition={{ duration: 0.5 }}
       />
       <motion.h1
-        className="text-6xl font-extrabold mb-4 text-gradient"
+        className="text-6xl max-sm:text-5xl font-extrabold mb-4 text-gradient"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
