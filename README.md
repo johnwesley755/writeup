@@ -112,7 +112,7 @@ Open [http://localhost:5173](http://localhost:5173) 🌐
 ## 🖼️ **Screenshots**
 
 1. **Home Page (Blog List)**  
-![Home Page](src/assets/home-banner.png)
+![Home Page](src/assets/home.png)
 
 2. **Create Blog Form**  
 ![Create Blog](src/assets/blog-form-banner.png)
