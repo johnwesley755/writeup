@@ -192,3 +192,30 @@ code {
 .italic{
   font-style:italic;
 }
+
+/* Animated border gradient */
+@keyframes borderGradient {
+  0%, 100% {
+    border-color: #dcf65c;
+  }
+  50% {
+    border-color: #ec9f48;
+  }
+}
+
+.animate-border-gradient {
+  animation: borderGradient 4s ease infinite;
+}
+
+@keyframes textGradient {
+  0%, 100% {
+    color: #dcf65c;
+  }
+  50% {
+    color: #ec9f48;
+  }
+}
+
+.animate-gradient-text {
+  animation: textGradient 6s ease infinite;
+}
