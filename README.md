@@ -1,6 +1,6 @@
 # **WriteUp 📝✨**  
 
-![WriteUp Banner](src/assets/home-update-banner.png)
+![WriteUp Banner](src/assets/home.png)
 
 ## 🚀 **About the Project**  
 **WriteUp** is a dynamic blog platform where users can create, share, and view technical blogs 📚. It features **syntax-highlighted code snippets** 🎨 powered by **PrismJS**, with smooth animations from **Framer Motion** and a responsive design using **Tailwind CSS**. 🌌
@@ -15,28 +15,35 @@ This project is built with **React (Vite)** and offers a **dark mode UI** for a 
 writeup/
 │
 ├── src/
-│   ├── components/         # Reusable UI components
-│   │   ├── Header.jsx      # Responsive Navbar with Sidebar for Mobile View
-│   │   ├── BlogCard.jsx    # Displays individual blog previews
-│   │   ├── CodeBlock.jsx   # PrismJS-powered syntax highlighting
-│   │   ├── Footer.jsx      # Footer with social links
-│   │   └── Button.jsx      # Custom button component
+│   ├── components/         
+│   │   ├── Header.jsx      # Responsive Navbar with dynamic Create Blog link
+│   │   ├── BlogCard.jsx    
+│   │   ├── CodeBlock.jsx   
+│   │   ├── Footer.jsx      
+│   │   └── Button.jsx      
 │   │
-│   ├── pages/              # Route-based pages
-│   │   ├── Home.jsx        # Displays list of blogs
-│   │   ├── BlogPage.jsx    # Individual blog page with code snippet & explanation
-│   │   └── NewBlogForm.jsx # Form to create new blogs
+│   ├── context/            # Context for authentication
+│   │   └── AuthContext.jsx
 │   │
-│   ├── App.jsx             # Root component with routes
-│   ├── index.css           # Global styles (Tailwind CSS)
-│   └── main.jsx            # Vite entry point
+│   ├── pages/              
+│   │   ├── Home.jsx        
+│   │   ├── BlogPage.jsx    
+│   │   ├── NewBlogForm.jsx 
+│   │   ├── LoginForm.jsx   
+│   │   ├── SignupForm.jsx  
+│   │   └── ForgotPasswordForm.jsx 
+│   │
+│   ├── App.jsx             
+│   ├── index.css           
+│   └── main.jsx            
 │
-├── public/                 # Static assets
-│   └── index.html
+├── public/                 
+│   └── index.html          
 │
-├── package.json            # Project dependencies
-├── tailwind.config.js      # Tailwind CSS configuration
-└── README.md               # Project documentation
+├── package.json            
+├── tailwind.config.js      
+└── README.md               
+
 ```
 
 ---
