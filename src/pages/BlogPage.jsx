@@ -1,3 +1,4 @@
+// src/pages/BlogPage.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase"; // Ensure db is imported from your firebase setup
@@ -45,7 +46,7 @@ const BlogPage = () => {
   }
 
   return (
-    <div className="mt-5 max-w-4xl mx-auto p-5 sm:p-6 md:p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-2xl">
+    <div className="mt-5 max-w-full mx-auto p-5 sm:p-6 md:p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-2xl">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 text-white tracking-wide">
         {blog.title}
       </h1>
@@ -55,7 +56,9 @@ const BlogPage = () => {
       </p>
 
       {blog.code && (
-        <div className="mb-6">
+        <div className="mb-6 overflow-x-auto">
+          {" "}
+          {/* Add overflow handling */}
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-400">
             Code Snippet:
           </h2>
@@ -75,7 +78,9 @@ const BlogPage = () => {
 
       {blog.explanation && (
         <div className="bg-gray-700 p-4 sm:p-5 rounded-lg text-white shadow-md">
-          <h2 className="text-lg sm:text-xl font-semibold mb-2">Explanation:</h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-2">
+            Explanation:
+          </h2>
           <p className="leading-relaxed text-base sm:text-lg">
             {blog.explanation}
           </p>
