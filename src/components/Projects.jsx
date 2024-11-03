@@ -15,10 +15,11 @@ const Projects = () => {
       link: "", // Replace with actual project URL
     },
     {
-      title: "Project 2",
-      description: "Description of project 2 with more details.",
+      title: "Remote KeyLogger",
+      description:
+        "This project is an educational remote keylogger that captures keystrokes, clipboard data, screenshots, and microphone audio, sending the collected information via email; unauthorized use is illegal and unethical.",
       imageUrl: projectsImg,
-      link: "https://your-project-link.com/project2", // Replace with actual project URL
+      link: "https://github.com/Krithik-sri/keyloggerv1", // Replace with actual project URL
     },
   ];
 

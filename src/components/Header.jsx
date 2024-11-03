@@ -44,14 +44,16 @@ const Header = () => {
             >
               Portfolio
             </Link>
-            {user && user.email === "johnwesley1024@gmail.com" && (
-              <Link
-                to="/new"
-                className="hover:text-yellow-400 transition-all duration-300"
-              >
-                Create Blog
-              </Link>
-            )}
+            {user &&
+              user.email === "johnwesley1024@gmail.com" &&
+              "krithiksrinivas200@gmail.com"(
+                <Link
+                  to="/new"
+                  className="hover:text-yellow-400 transition-all duration-300"
+                >
+                  Create Blog
+                </Link>
+              )}
             {!user ? (
               <>
                 <Link
@@ -124,15 +126,17 @@ const Header = () => {
               >
                 Portfolio
               </Link>
-              {user && user.email === "johnwesley1024@gmail.com" && (
-                <Link
-                  to="/new"
-                  onClick={closeSidebar}
-                  className="block font-bold text-white hover:text-yellow-400 transition duration-300"
-                >
-                  Create Blog
-                </Link>
-              )}
+              {user &&
+                user.email === "johnwesley1024@gmail.com" &&
+                "krithiksrinivas200@gmail.com"(
+                  <Link
+                    to="/new"
+                    onClick={closeSidebar}
+                    className="block font-bold text-white hover:text-yellow-400 transition duration-300"
+                  >
+                    Create Blog
+                  </Link>
+                )}
               {!user ? (
                 <>
                   <Link
