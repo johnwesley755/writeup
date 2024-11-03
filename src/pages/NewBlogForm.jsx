@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const NewBlogForm = ({ addBlog }) => {
   const [title, setTitle] = useState("");
@@ -9,11 +12,33 @@ const NewBlogForm = ({ addBlog }) => {
   const [explanation, setExplanation] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { title, content, code, image, explanation };
-    addBlog(formData);
-    navigate("/");
+    const formData = {
+      title,
+      content,
+      code,
+      image,
+      explanation,
+      createdAt: new Date(),
+    };
+
+    try {
+      // Save to Firestore
+      const docRef = await addDoc(collection(db, "blogs"), formData);
+
+      // Update the UI
+      addBlog({ id: docRef.id, ...formData });
+
+      // Show success notification
+      toast.success("Blog submitted successfully!");
+
+      // Redirect to Home page
+      navigate("/");
+    } catch (error) {
+      console.error("Error adding blog: ", error);
+      toast.error("Failed to submit blog. Please try again.");
+    }
   };
 
   const handleImageChange = (e) => {

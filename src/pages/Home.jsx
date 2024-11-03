@@ -1,11 +1,37 @@
 // src/pages/Home.jsx
-import React from "react";
-import BlogCard from "../components/BlogCard";
+import React, { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import profileImg from "../assets/krithi-sri.jpg";
+import { db } from "../firebase"; // Import the Firestore database
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore"; // Import Firestore functions
 
-const Home = ({ blogs = [] }) => {
+const Home = () => {
+  const [allBlogs, setAllBlogs] = useState([]);
+
+  // Fetch blogs from Firestore
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const blogCollection = collection(db, "blogs");
+      const blogSnapshot = await getDocs(blogCollection);
+      const blogList = blogSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setAllBlogs(blogList);
+    };
+
+    fetchBlogs();
+  }, []);
+
+  // Function to delete a blog
+  const handleDelete = async (id) => {
+    const blogDoc = doc(db, "blogs", id); // Get the document reference
+    await deleteDoc(blogDoc); // Delete the document from Firestore
+    setAllBlogs((prevBlogs) => prevBlogs.filter((blog) => blog.id !== id)); // Update the state to remove the deleted blog
+  };
+
   return (
     <div className="min-h-[80vh] text-white px-6 py-12 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-6xl mx-auto">
@@ -52,24 +78,7 @@ const Home = ({ blogs = [] }) => {
           </div>
         </motion.div>
 
-        {/* Featured Post Section */}
-        {blogs.length > 0 && (
-          <motion.div
-            className="mb-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h2 className="text-3xl font-bold mb-6 text-center text-gradient">
-              Featured Post
-            </h2>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {blogs.slice(0, 1).map((blog, index) => (
-                <BlogCard key={index} blog={blog} index={index} />
-              ))}
-            </div>
-          </motion.div>
-        )}
+     
 
         {/* All Blogs Section */}
         <motion.div
@@ -80,7 +89,7 @@ const Home = ({ blogs = [] }) => {
           <h2 className="text-4xl font-bold mb-8 text-center animate-fadeIn">
             Latest Posts
           </h2>
-          {blogs.length === 0 ? (
+          {allBlogs.length === 0 ? (
             <p className="text-center text-gray-400 text-lg mt-12">
               No posts yet.{" "}
               <Link to="/new">
@@ -91,8 +100,39 @@ const Home = ({ blogs = [] }) => {
             </p>
           ) : (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {blogs.map((blog, index) => (
-                <BlogCard key={index} blog={blog} index={index} />
+              {allBlogs.map((blog) => (
+                <div
+                  key={blog.id}
+                  className="p-4 bg-gray-800 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-200"
+                >
+                  <h2 className="text-2xl font-semibold text-blue-400">
+                    {blog.title}
+                  </h2>
+                  <p className="mt-2 text-gray-300">
+                    {blog.content.slice(0, 100)}...
+                  </p>
+                  <div className="mt-4">
+                    <span className="text-gray-500">
+                      By {blog.author || "Unknown"}
+                    </span>
+                    <span className="text-gray-500 mx-2">|</span>
+                    <span className="text-gray-500">
+                      {new Date(blog.date).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <Link
+                    to={`/blog/${blog.id}`}
+                    className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
+                  >
+                    Read More
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(blog.id)}
+                    className="mt-4 ml-4 inline-block bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-200"
+                  >
+                    Delete
+                  </button>
+                </div>
               ))}
             </div>
           )}
