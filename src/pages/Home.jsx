@@ -113,7 +113,7 @@ const Home = () => {
                   </p>
                   <div className="mt-4">
                     <span className="text-gray-500">
-                      By {blog.author || "Unknown"}
+                      By {blog.author || "Krithik Srinivas"}
                     </span>
                     <span className="text-gray-500 mx-2">|</span>
                     <span className="text-gray-500">
