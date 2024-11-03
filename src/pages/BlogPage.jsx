@@ -75,9 +75,7 @@ const BlogPage = () => {
 
       {blog.explanation && (
         <div className="bg-gray-700 p-4 sm:p-5 rounded-lg text-white shadow-md">
-          <h2 className="text-lg sm:text-xl font-semibold mb-2">
-            Explanation:
-          </h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-2">Explanation:</h2>
           <p className="leading-relaxed text-base sm:text-lg">
             {blog.explanation}
           </p>

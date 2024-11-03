@@ -1,15 +1,22 @@
 // src/components/Header.jsx
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
+import AuthContext from "../context/AuthContext"; // Make sure the import is correct
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-
   const closeSidebar = () => setSidebarOpen(false);
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/"); // Redirect to home after logout
+  };
 
   return (
     <>
@@ -24,26 +31,50 @@ const Header = () => {
           >
             <Link to="/">Krithik's Blog</Link>
           </motion.h1>
-          <nav className="hidden md:flex text-xl space-x-6">
-        
+          <nav className="hidden md:flex space-x-6">
             <Link
-              to="/portfolio"
+              to="/"
+              className="hover:text-yellow-400 transition-all duration-300"
+            >
+              Home
+            </Link>
+            <Link
+              to="/portfolio" // Link to the portfolio page
               className="hover:text-yellow-400 transition-all duration-300"
             >
               Portfolio
             </Link>
-            <Link
-              to="/new"
-              className="hover:text-yellow-400 transition-all duration-300"
-            >
-              Create Blog
-            </Link>
-            <Link
-              to="/contact"
-              className="hover:text-yellow-400 transition-all duration-300"
-            >
-              Contact
-            </Link>
+            {user && user.email === "johnwesley1024@gmail.com" && (
+              <Link
+                to="/new"
+                className="hover:text-yellow-400 transition-all duration-300"
+              >
+                Create Blog
+              </Link>
+            )}
+            {!user ? (
+              <>
+                <Link
+                  to="/login"
+                  className="hover:text-yellow-400 transition-all duration-300"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="hover:text-yellow-400 transition-all duration-300"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <button
+                onClick={handleLogout}
+                className="hover:text-yellow-400 transition-all duration-300"
+              >
+                Logout
+              </button>
+            )}
           </nav>
 
           {/* Hamburger Icon for Mobile */}
@@ -71,7 +102,7 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.h2
-              className="text-3xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+              className="text-2xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -80,26 +111,56 @@ const Header = () => {
             </motion.h2>
             <nav className="space-y-6">
               <Link
-                to="/portfolio"
+                to="/"
                 onClick={closeSidebar}
-                className="block font-bold text-white hover:text-yellow-400 text-2xl transition duration-300"
+                className="block font-bold text-white hover:text-yellow-400 transition duration-300"
+              >
+                Home
+              </Link>
+              <Link
+                to="/portfolio" // Link to the portfolio page
+                onClick={closeSidebar}
+                className="block font-bold text-white hover:text-yellow-400 transition duration-300"
               >
                 Portfolio
               </Link>
-              <Link
-                to="/new"
-                onClick={closeSidebar}
-                className="block font-bold text-white hover:text-yellow-400 text-2xl transition duration-300"
-              >
-                Create Blog
-              </Link>
-              <Link
-                to="/contact"
-                onClick={closeSidebar}
-                className="block font-bold text-white hover:text-yellow-400 text-2xl transition duration-300"
-              >
-                Contact
-              </Link>
+              {user && user.email === "johnwesley1024@gmail.com" && (
+                <Link
+                  to="/new"
+                  onClick={closeSidebar}
+                  className="block font-bold text-white hover:text-yellow-400 transition duration-300"
+                >
+                  Create Blog
+                </Link>
+              )}
+              {!user ? (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={closeSidebar}
+                    className="block font-bold text-white hover:text-yellow-400 transition duration-300"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={closeSidebar}
+                    className="block font-bold text-white hover:text-yellow-400 transition duration-300"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    closeSidebar();
+                  }}
+                  className="block font-bold text-white hover:text-yellow-400 transition duration-300"
+                >
+                  Logout
+                </button>
+              )}
             </nav>
           </motion.div>
         </div>
