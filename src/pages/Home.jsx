@@ -47,8 +47,8 @@ const Home = () => {
             <h1 className="text-5xl font-extrabold mb-4 text-transparent text-yellow-500">
               Welcome to My Blog
             </h1>
-            <p className="text-lg text-gray-400 mb-6">
-              Hi, I'm Krithik Srinivas. I write about technology, cybersecurity,
+            <p className="text-lg text-gray-400 text-left mb-6">
+              Hi, I'm Krithik Srinivas. I write about technology, cybersecurity and
               AI, and my journey as a pre-final year student. Join me as I
               explore new ideas and share insights on topics I’m passionate
               about.

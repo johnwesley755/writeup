@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
-import AuthContext from "../context/AuthContext"; // Make sure the import is correct
+import AuthContext from "../context/AuthContext"; // Ensure the import is correct
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -45,8 +45,8 @@ const Header = () => {
               Portfolio
             </Link>
             {user &&
-              user.email === "johnwesley1024@gmail.com" &&
-              "krithiksrinivas200@gmail.com"(
+              (user.email === "johnwesley1024@gmail.com" ||
+                user.email === "krithiksrinivas200@gmail.com") && (
                 <Link
                   to="/new"
                   className="hover:text-yellow-400 transition-all duration-300"
@@ -127,8 +127,8 @@ const Header = () => {
                 Portfolio
               </Link>
               {user &&
-                user.email === "johnwesley1024@gmail.com" &&
-                "krithiksrinivas200@gmail.com"(
+                (user.email === "johnwesley1024@gmail.com" ||
+                  user.email === "krithiksrinivas200@gmail.com") && (
                   <Link
                     to="/new"
                     onClick={closeSidebar}
